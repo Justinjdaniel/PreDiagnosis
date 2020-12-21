@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand font-weight-bold" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ml-auto">
+          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" routerLink="diagnosis" routerLinkActive="active">Diagnosis</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" routerLink="doctors" *ngIf="_auth.loggedIn()" routerLinkActive="active">Doctors</a>
+        </li>
+        <li class="nav-item ml-auto dropdown">
+          <a class="nav-link dropdown-toggle" *ngIf="(_auth.getToken() == 'adminPower')" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add/Edit Doctor
+          </a>
+          <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="nav-link ml-4" routerLink="doc/add" *ngIf="(_auth.getToken() == 'adminPower')" routerLinkActive="active">Add Doctor</a>
+          <a class="nav-link ml-4" routerLink="doc/edit" *ngIf="(_auth.getToken() == 'adminPower')" routerLinkActive="active">Edit Doctor</a>
+          </div>
+        </li>
+        <li class="nav-item ml-auto dropdown">
+          <a class="nav-link dropdown-toggle" *ngIf="(_auth.getToken() == 'adminPower')" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add/Edit Data
+          </a>
+          <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="nav-link ml-4" routerLink="data/add" *ngIf="(_auth.getToken() == 'adminPower')" routerLinkActive="active">Add Data</a>
+            <a class="nav-link ml-4" routerLink="data/edit" *ngIf="(_auth.getToken() == 'adminPower')" routerLinkActive="active">Edit Data</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item ml-auto">
+          <a class="nav-link" routerLink="login" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Login</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" routerLink="register" *ngIf="!_auth.loggedIn()" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" style="cursor: pointer;" *ngIf="_auth.loggedIn()" routerLinkActive="active" (click)="logoutUser()">Log Out</a>
+        </li>
+          <!-- <a class="nav-link active" style="cursor: pointer;" *ngIf="!_auth.loggedIn()" routerLinkActive="active">UserName</a> -->
+      </ul>
+    </div>
+  </nav>
