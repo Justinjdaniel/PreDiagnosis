@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header text-center display-3">
+        {{title}}
+    </div>
+    <div class="card-body">
+        <form class="was-validated">
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Doctor Name</h5></label>
+                <input type="text" class="form-control col-6" name="docName" [(ngModel)]="doctor.docName" required>
+                <div class="invalid-feedback col-3"><h6>Please fill Doctor Name field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Doctor Degree</h5></label>
+                <input type="text" class="form-control col-6" name="docDeg" [(ngModel)]="doctor.docDeg" required>
+                <div class="invalid-feedback col-3"><h6>Please fill Doctor Degree field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Clinic Name</h5></label>
+                <input type="text" class="form-control col-6" name="clinicName" [(ngModel)]="doctor.clinicName" required>
+                <div class="invalid-feedback col-3"><h6>Please fill Clinic Name field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Phone Number</h5></label>
+                <input type="number" class="form-control col-6" name="phone" [(ngModel)]="doctor.phone" minlength="10" maxlength="10" required>
+                <div class="invalid-feedback col-3"><h6>Please fill Phone Number field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Website</h5></label>
+                <input type="text" class="form-control col-6" name="website" [(ngModel)]="doctor.website" required>
+                <div class="invalid-feedback col-3"><h6>Please fill Website field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>5 Star Rating</h5></label>
+                <input type="number" class="form-control col-6" name="starRating" [(ngModel)]="doctor.starRating" min="0" max="5" equired>
+                <div class="invalid-feedback col-3"><h6>Please fill Star Rating field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Product Image Url</h5></label>
+                <input type="text" class="form-control col-6" name="imageUrl" [(ngModel)]="doctor.imageUrl" required>
+                <div class="invalid-feedback col-3"><h6>Please fill Product Image Url field</h6></div>
+            </div>
+            <button class="btn-lg btn-success mx-auto btn-block col-3" [disabled]="!doctor.docName || !doctor.docDeg || !doctor.clinicName || !doctor.phone || !doctor.website || !doctor.starRating || !doctor.imageUrl" (click)="updateDoctor(doctor.docName, doctor.docDeg, doctor.clinicName, doctor.phone, doctor.website, doctor.starRating, doctor.imageUrl)"><h3>Update</h3></button>
+        </form>
+    </div>
+</div>

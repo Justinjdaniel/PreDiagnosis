@@ -1,0 +1,32 @@
+<div class="logBox shadow-lg">
+    <h2 class="text-center display-4 font-weight-bold">Login</h2><br>
+    <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label for="Email" class="col-md font-weight-bold">Email Address</label>
+          <input type="email" formControlName="email" #email required class="form-control shadow-sm" [(ngModel)]="loginUserDetails.email">
+        </div>
+        <div class="alert alert-danger font-weight-bold" *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)">
+            <div *ngIf="angForm.controls['email'].errors.required">
+                Email Address is required.
+            </div>
+            <div *ngIf="angForm.controls['email'].errors.pattern">
+              Email Address format is Invalid.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Password" class="col-md font-weight-bold">Password</label>
+          <input type="password" formControlName="password" #password required class="form-control shadow-sm" [(ngModel)]="loginUserDetails.password">
+        </div>
+        <div class="alert alert-danger font-weight-bold" *ngIf="angForm.controls['password'].invalid && (angForm.controls['password'].dirty || angForm.controls['password'].touched)">
+          <div *ngIf="angForm.controls['password'].errors.required">
+              Password is required.
+          </div>
+          <div *ngIf="angForm.controls['password'].errors.pattern">
+              Must be atleast 8 character | It should contain Uppercase, Lowercase, Numbers & Symbols.
+        </div>
+      </div>
+        <button type="submit" [disabled]="angForm.pristine || angForm.invalid" (click)="loginUser()" class="btn btn-success font-weight-bold shadow-sm float-right">Login</button>
+      </form>
+      
+  <h5 class="" style="margin-top: 70px;">New here? <a class="text-black ml-2" href="register">Register Now</a></h5>
+</div>

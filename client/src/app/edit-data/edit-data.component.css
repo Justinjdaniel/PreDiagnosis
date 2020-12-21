@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.containerBox{
+    border: 2px solid lightslategray;
+    border-radius: 7px;
+    position: relative
+}
+.dataBox{
+    border: 2px solid lightskyblue;
+    border-radius: 7px;
+    background-color: lightgrey;
+    position: relative;
+}
+.dataBox:hover{
+    background-color: lightcyan;
+    border: 2px solid blue;
+    cursor: pointer;
+}
+.weLink:hover{
+    text-decoration: underline;
+}
+.btns{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

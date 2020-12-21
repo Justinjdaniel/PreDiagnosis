@@ -1,0 +1,480 @@
+
+<h1 class="text-center mt-5 display-4">User Details</h1>
+<div class="userDetail1">
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+          <div class="col-md mb-4">
+            <label for="validationTooltip01">First name</label>
+            <input type="text" class="form-control" #firstName placeholder="First Name" value="" required>
+            <div class="invalid-tooltip">
+                Please enter name.
+              </div>
+          </div>
+          <div class="col-md mb-4">
+            <label for="validationTooltip01">Last name</label>
+            <input type="text" class="form-control" #lastName placeholder="Last Name" value="" required>
+            <div class="invalid-tooltip">
+                Please enter name.
+              </div>
+          </div>
+          <div class="col-md-3 mb-4 ml-auto">
+            <label for="validationTooltipUsername">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+              </div>
+              <input type="text" class="form-control" #userNmae placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+              <div class="invalid-tooltip">
+                Please choose a unique and valid username.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip03">City</label>
+            <input type="text" class="form-control" #city placeholder="City" required>
+            <div class="invalid-tooltip">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip04">State</label>
+            <input type="text" class="form-control" #state placeholder="State" required>
+            <div class="invalid-tooltip">
+              Please provide a valid State.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip04">Age</label>
+            <input type="text" class="form-control" #age placeholder="Age" required>
+            <div class="invalid-tooltip">
+              Please provide a valid Age.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip06">Gender</label>
+            <select class="custom-select" #gender required>
+              <option selected value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="invalid-tooltip">Please provide a valid Gender</div>
+          </div>
+        </div>
+        <label for="medicalConditions">Medical Conditions</label>
+        <div class="conditionCheck form-inline mb-4">
+          <div class="form-check">
+            <input class="form-check-input position-static mr-2" type="checkbox" #diabetic value="diabetic">
+            <label class="form-check-label mr-5" for="checkbox1">I'm Diabetic</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" #cardiac value="cardiac">
+            <label for="checkbox2" class="form-check-label mr-5">I've Cardiac Problems</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input position-static" type="checkbox" #resperation value="resperation">
+            <label for="checkbox2" class="form-check-label mr-5">I've Resperatory Problems</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="">Other Medical conditions</label>
+            <input type="text" class="form-control" #otherMedical placeholder="Others">
+          </div>
+        </div>
+
+      <!-- <button class="btn btn-lg btn-outline-primary" onsubmit="fSub()">Submit</button> -->
+      <button class="btn btn-lg btn-outline-primary" (click)="fSub()">Submit</button>
+    </form>
+</div>
+
+<div class="mt-n4" *ngIf="showImage">
+  <small class="text-center form-text text-muted" style="font-size: 150%;">Click on the image to get more options</small>
+  <div class="bodyImage">
+    <img src="https://www.researchgate.net/profile/Justin_Carpentier/publication/326683494/figure/fig2/AS:654032582488068@1532944927947/Unveiled-human-body-Illustration-of-the-main-skeletal-muscles-constitutive-of-the.png" usemap="#image-map">
+    <map name="image-map">
+      <area target="" alt="Head front" title="Head" (click)="scrollHead(head)" coords="213,23,202,32,197,47,199,60,195,65,193,73,194,80,204,88,208,101,215,111,232,117,244,119,261,111,269,98,272,85,277,66,270,65,271,50,263,32,252,22,235,15" shape="poly">
+      <area target="" alt="Back Head" title="Back Head" (click)="scrollHead(head)" coords="570,100,567,85,560,80,558,65,567,36,582,19,605,15,624,29,634,45,633,61,639,67,635,85,628,87,625,101" shape="poly">
+      <area target="" alt="Neck front" title="Neck" (click)="scrollNeck(neck)" coords="167,143,179,149,199,156,221,160,242,161,266,158,289,152,299,144,271,136,261,128,260,111,237,118,215,112,208,104,206,124,193,131,182,138" shape="poly">
+      <area target="" alt="Back Neck" title="Back Neck" (click)="scrollNeck(neck)" coords="569,126,600,131,624,127,625,102,598,101,572,101" shape="poly">
+      <area target="" alt="Shoulders front" title="Shoulders" (click)="scrollShoulder(shoulder)" coords="169,140,187,150,214,157,238,160,273,158,286,153,299,145,315,151,330,162,338,179,340,205,339,223,304,223,307,190,297,175,282,165,256,160,206,155,180,169,167,180,158,201,158,230,118,213,121,185,128,166,141,154,161,142" shape="poly">
+      <area target="" alt="Back Shoulders" title="Back Shoulders" (click)="scrollShoulder(shoulder)" coords="571,128,602,131,626,126,679,148,706,174,710,211,674,223,644,220,640,163,599,158,554,167,556,223,528,225,489,216,495,168,517,151,548,141" shape="poly">
+      <area target="" alt="Right Arm front" title="Right Arm" (click)="scrollArm(arm)" coords="157,232,151,262,148,284,146,316,142,344,134,372,128,397,141,415,147,445,141,447,132,427,127,431,128,449,145,462,140,469,129,468,114,458,106,442,106,415,103,394,103,370,104,318,102,302,111,273,115,236,117,214" shape="poly">
+      <area target="" alt="Back Right Arm" title="Right Arm" (click)="scrollArm(arm)" coords="666,227,680,270,682,312,696,364,706,393,695,411,691,437,696,444,703,420,712,432,708,446,694,457,693,464,714,464,730,437,728,402,729,314,725,296,718,248,711,212" shape="poly">
+      <area target="" alt="Left Arm front" title="Left Arm" (click)="scrollArm(arm)" coords="303,222,300,250,302,274,302,304,308,336,323,364,333,391,335,421,342,443,343,465,349,453,354,465,361,480,360,445,373,473,377,461,370,434,387,468,391,461,375,415,401,438,401,427,392,418,372,403,361,394,352,354,351,313,342,283,338,223" shape="poly">
+      <area target="" alt="Back Left Arm" title="Left Arm" (click)="scrollArm(arm)" coords="488,240,488,264,480,306,475,394,438,425,459,418,450,450,453,462,462,445,466,435,461,465,469,468,475,436,479,446,476,470,484,471,489,438,489,462,496,462,502,415,497,396,508,365,522,323,525,293,529,260,521,222,500,220,490,215" shape="poly">
+      <area target="" alt="Chest" title="Chest" (click)="scrollChest(chest)" coords="203,158,257,160,287,167,306,186,303,213,299,242,299,261,300,274,283,255,259,246,238,244,216,245,197,253,177,271,170,284,160,263,155,247,160,217,162,190,172,172" shape="poly">
+      <area target="" alt="Abdomen" title="Abdomen" (click)="scrollAbdomen(abdomen)" coords="171,285,176,310,168,340,174,351,200,374,215,399,242,391,268,396,282,378,297,356,294,320,293,295,298,272,286,256,261,245,231,243,202,246,182,263" shape="poly">
+      <area target="" alt="Between Legs" title="Between Legs" (click)="scrollBtwLegs(betweenLegs)" coords="219,398,239,389,266,398,261,414,251,428,237,442,222,415" shape="poly">
+      <area target="" alt="Back" title="Back" (click)="scrollBack(back)" coords="524,226,557,222,558,192,551,167,597,160,639,164,641,221,668,226,674,253,666,266,659,307,663,350,648,361,609,388,591,388,571,370,536,347,544,311,534,277,530,263" shape="poly">
+      <area target="" alt="Bottom" title="Bottom" (click)="scrollBottom(bottom)" coords="536,347,593,390,609,390,663,350,671,392,666,441,647,455,621,452,602,436,589,452,555,458,536,450,524,433,529,400" shape="poly">
+      <area target="" alt="Legs" title="Legs" (click)="scrollLegs(legs)" coords="234,441,223,418,212,397,202,382,186,365,168,353,165,391,158,436,164,491,175,545,184,600,178,630,179,663,187,700,202,759,203,783,210,798,199,816,199,825,215,826,234,827,237,818,240,792,231,776,229,744,232,697,230,655,224,634,232,587,231,529,236,494,236,449,241,509,245,531,249,571,254,614,249,649,253,690,262,740,256,773,260,815,272,826,303,823,306,813,288,797,286,770,292,749,294,715,305,673,301,637,298,605,300,575,307,543,317,496,314,429,301,378,296,361,269,395,257,420,245,437" shape="poly">
+      <area target="" alt="Back Legs" title="Legs" (click)="scrollLegs(legs)" coords="521,437,516,466,523,510,533,559,535,598,532,637,531,680,542,727,547,774,549,789,536,799,538,812,565,814,574,813,580,778,573,740,576,712,582,668,578,612,590,539,593,500,595,455,602,460,601,483,606,509,603,549,606,585,613,613,605,648,606,684,607,741,600,772,603,790,603,811,627,816,648,811,636,792,627,779,632,748,644,699,656,669,657,624,653,591,661,534,676,482,679,452,677,437,665,444,648,457,622,452,603,442,560,460,538,450" shape="poly">
+    </map>
+  </div>
+</div>
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #head>
+
+      <div class="col-md-6" *ngIf="showHead">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="head" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Forehead">Forehead</option>
+          <option value="Eyes">Eyes</option>
+          <option value="Nose">Nose</option>
+          <option value="Ears">Ears</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Forehead'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="forehead" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Headache">Headache</option>
+        <option value="Numbness">Numbness</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Eyes'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="eyes" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Redness">Redness</option>
+        <option value="Irritation">Irritation</option>
+        <option value="Watery Eye">Watery Eye</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Nose'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="nose" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Running Nose">Running Nose</option>
+        <option value="Bleeding">Bleeding</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Ears'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="ears" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Puzz Coming">Puzz Coming</option>
+        <option value="Pain">Pain</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #neck>
+
+      <div class="col-md-6" *ngIf="showNeck">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="neck" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Neck">Neck</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Neck'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="forehead" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Pain">Pain</option>
+        <option value="Swelling">Swelling</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #shoulder>
+
+      <div class="col-md-6" *ngIf="showShoulder">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="shoulder" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Shoulder">Shoulder</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Shoulder'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="shoulder" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Pain">Pain</option>
+        <option value="Movement Limitation">Movement Limitation</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #arm>
+
+      <div class="col-md-6" *ngIf="showArm">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="arm" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Wrist">Wrist</option>
+          <option value="Elbow">Elbow</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Wrist'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="wrist" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Pain">Pain</option>
+        <option value="Numbness">Numbness</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Elbow'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="elbow" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Pain">Pain</option>
+        <option value="Movement">Movement</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #chest>
+
+      <div class="col-md-6" *ngIf="showChest">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="chest" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Chest">Chest</option>
+          <option value="Lungs">Lungs</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Chest'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="chest" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Pain">Pain</option>
+        <option value="Severe Pain">Severe Pain</option>
+        <option value="Heartburn">Heartburn</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Lungs'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="lungs" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Breadthlessness">Breadthlessness</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #abdomen>
+
+      <div class="col-md-6" *ngIf="showAbdomen">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="abdomen" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Abdomen">Abdomen</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Abdomen'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="abdomen" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Pain">Pain</option>
+        <option value="Vomitting">Vomitting</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group ml-5 mr-5 row" #betweenLegs>
+
+      <div class="col-md-6" *ngIf="showBtwLegs">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="betweenLegs" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Between Legs">Between Legs</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Between Legs'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="betweenLegs" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Iching">Iching</option>
+        <option value="Swelling">Swelling</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group mr-5 ml-5 row" #back>
+
+      <div class="col-md-6" *ngIf="showBack">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="back" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Back">Back</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Back'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="back" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Back Pain">Back Pain</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group mr-5 ml-5 row" #bottom>
+
+      <div class="col-md-6" *ngIf="showBottom">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="bottom" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Bottom">Bottom</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Bottom'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="bottom" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Bleeding">Bleeding</option>
+        <option value="Pain">Pain</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<div class="imageConditions">
+  <form class="was-validated">
+    <div class="form-group mr-5 ml-5 row" #legs>
+
+      <div class="col-md-6" *ngIf="showLegs">
+        <h4>Select area where symptom is showing</h4>
+        <select class="custom-select" name="legs" (change)="selectedBodyArea($event)" [disabled]="selectedSympi" required>
+          <option value="">Open this select menu</option>
+          <option value="Ankle">Ankle</option>
+          <option value="Knee">Knee</option>
+        </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Ankle'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="ankle" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Swelling">Swelling</option>
+        <option value="Numbness">Numbness</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    <div class="col-md" *ngIf=" selectedArea == 'Knee'">
+      <h4>Select symptom from the list</h4>
+      <select class="custom-select" for="Knee" (change)="selectedSymptom($event)" required>
+        <option value="">Open this select menu</option>
+        <option value="Stiffness">Stiffness</option>
+        <option value="Swelling">Swelling</option>
+        <option value="Pain">Pain</option>
+      </select>
+      <div class="invalid-feedback">Invalid Option</div>
+    </div>
+
+    </div>
+  </form>
+</div>
+
+
+<button class="btn-lg btn-block shadow font-weight-bold col-md-2 mx-auto btn-primary mt-n2" [disabled]="!selectedArea || !selectedSympi" *ngIf="selectedArea" (click)="checkData()">Check</button>
+
+<div class="fluid-container checkResult shadow m-5 p-5" *ngIf="showResult">
+  <div class="display-4 text-black-50 mx-auto text-center mt-n4 mb-3 font-weight-bold">RESULT</div>
+  <div class="row mb-3">
+    <h4 class="col-md-3">Possible Cause</h4>
+    <h4>:</h4>
+    <h4 class="col-md-4 mr-auto">{{cData.cause}}</h4>
+  </div>
+  <div class="row mb-3">
+    <h4 class="col-md-3">Treatments</h4>
+    <h4>:</h4>
+    <h4 class="col-md-7 mr-auto">{{cData.recom}}</h4>
+  </div>
+  <iframe src="{{cData.suggWeb}}" name="result_iframe" width="90%" height="500px"></iframe>
+  <h4 class="text-center mt-3">
+    <a class="text-decoration-none" routerLink="/doctors" target="result_iframe">Click here to check out the Doctor list</a>
+  </h4>
+</div>

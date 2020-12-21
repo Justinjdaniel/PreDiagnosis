@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.userDetail1{
+    margin: 20px;
+    padding: 20px;
+}
+
+.bodyImage{
+    display: flex;
+    justify-content: center;
+}
+.text-center{
+    text-align: center;
+}
+img{
+    margin-top: 10px;
+}
+map{
+    cursor: pointer;
+}
+.checkResult{
+    border: 2px solid lightslategray;
+    border-radius: 7px;
+}
+iframe{
+    border: none;
+    margin-top: 20px;
+    margin-left: 5%;
+}

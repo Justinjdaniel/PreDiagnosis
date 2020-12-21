@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header text-center display-3">
+        {{title}}
+    </div>
+    <div class="card-body">
+        <form class="was-validated">
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Area where symptom occured</h5></label>
+                <input type="text" class="form-control col-6" name="sympiAt" [(ngModel)]="sData.sympiAt" required>
+                <div class="invalid-feedback col-3"><h6>Please specify the area where symptoms are shown</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Symptom</h5></label>
+                <input type="text" class="form-control col-6" name="symptom" [(ngModel)]="sData.symptom" required>
+                <div class="invalid-feedback col-3"><h6>Please specify the Symptom field</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Cause</h5></label>
+                <input type="text" class="form-control col-6" name="cause" [(ngModel)]="sData.cause" required>
+                <div class="invalid-feedback col-3"><h6>Please specify the cause for the symptom</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Result & Recommendation</h5></label>
+                <input type="text" class="form-control col-6" name="recom" [(ngModel)]="sData.recom" required>
+                <div class="invalid-feedback col-3"><h6>Please specify Result & Recommendation</h6></div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-3"><h5>Suggetion Website</h5></label>
+                <input type="text" class="form-control col-6" name="suggWeb" [(ngModel)]="sData.suggWeb" required>
+                <div class="invalid-feedback col-3"><h6>Please fill suggetion website field: <b><i>[Url]</i></b></h6></div>
+            </div>
+            <button class="btn-lg btn-success mx-auto btn-block col-3" [disabled]="!sData.sympiAt || !sData.symptom || !sData.cause || !sData.recom || !sData.suggWeb" (click)="updateData(sData.sympiAt, sData.symptom, sData.cause, sData.recom, sData.suggWeb)"><h3>Update</h3></button>
+        </form>
+    </div>
+</div>

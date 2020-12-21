@@ -1,0 +1,32 @@
+<div class="fluid-container">
+    <div class="title display-3 text-center font-weight-bold mt-5">
+        Symptoms Data
+    </div>
+    <div class="containerBox m-5 shadow">
+        <div class="dataBox m-5 p-3 shadow-sm" *ngFor="let sData of sDatas; let i = index">
+            <div class="row m-2">
+                <h5 class="col-md">Area where symptoms occured</h5><h5>:</h5>
+                <h5 class="col-md-7">{{sData.sympiAt}}</h5>
+            </div>
+            <div class="row m-2">
+                <h5 class="col-md">Symptom</h5><h5>:</h5>
+                <h5 class="col-md-7">{{sData.symptom}}</h5>
+            </div>
+            <div class="row m-2">
+                <h5 class="col-md">Possible Cause</h5><h5>:</h5>
+                <h5 class="col-md-7">{{sData.cause}}</h5>
+            </div>
+            <div class="row m-2">
+                <h5 class="col-md">Recommendation</h5><h5>:</h5>
+                <h5 class="col-md-7 text-justify">{{sData.recom}}</h5>
+            </div>
+            <div class="row m-2">
+                <h5 class="col-md">Suggested Website</h5><h5>:</h5>
+                <h5 class="col-md-7 text-info text-justify overflow-auto">{{sData.suggWeb}}</h5>
+            </div><div class="btns">
+                <button class="btn btn-success shadow-sm m-2 font-weight-bold"><a class="text-white text-decoration-none" [routerLink]="['update', sData._id]">Update</a></button>
+                <button class="btn btn-danger shadow-sm m-2 font-weight-bold"><a (click)="deleteData(sData._id,i)">Delete</a></button>
+            </div>
+        </div>
+    </div>
+</div>

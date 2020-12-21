@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.title{
+    margin: 20px 0;
+}
+.contentBox{
+    margin: 10px 30px;
+    padding: 50px;
+    border: 2px solid hsl(0, 0%, 0%);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    background-color: rgb(106, 187, 187);
+}
+img{
+    margin-right: 50px;
+    border: 2px solid gold;
+    border-radius: 7px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+img:hover{
+    border: 2px solid yellow;
+    border-radius: 100%;
+}
+.docDetails{
+    margin-left: 10px;
+    color: white;
+}
+.docName{
+    color: white;
+}
+.moreLink{
+    position: absolute;
+    text-decoration:none;
+    top: 20px;
+    right:30px;
+    color: white;
+    border: none;
+}
+.checked {
+    color: orange;
+}
